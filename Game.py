@@ -54,7 +54,11 @@ def restart():
     """
     Resets the ball and player scores to the initial state.
     """
-    global ball_speed_x, ball_speed_y, score
+    global ball_speed_x, ball_speed_y, score, high_score
+    if score > high_score:
+        high_score = score
+    ball.center = (screen_width / 2, screen_height / 2)  # Reset ball position
+    ball_speed_y, ball_speed_x = 0, 0
     ball.center = (screen_width / 2, screen_height / 2)  # Reset ball position to center
     ball_speed_y, ball_speed_x = 0, 0  # Stop ball movement
     score = 0  # Reset player score
@@ -87,6 +91,7 @@ player_speed = 0
 
 # Score Text setup
 score = 0
+high_score = 0
 basic_font = pygame.font.Font('freesansbold.ttf', 32)  # Font for displaying score
 
 start = False  # Indicates if the game has started
@@ -125,6 +130,8 @@ while True:
     # TODO Task 3: Change the Ball Color
     pygame.draw.ellipse(screen, red, ball)  # Draw ball
     player_text = basic_font.render(f'{score}', False, light_grey)  # Render player score
+    high_text = basic_font.render(f'High Score: {high_score}', False, light_grey)
+    screen.blit(high_text, (10, 50))
     screen.blit(player_text, (screen_width/2 - 15, 10))  # Display score on screen
 
     # Update display
