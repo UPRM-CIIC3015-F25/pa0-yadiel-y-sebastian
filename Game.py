@@ -67,7 +67,7 @@ def restart():
 pygame.mixer.pre_init(44100, -16, 1, 1024)
 pygame.init()
 clock = pygame.time.Clock()
-pygame.mixer.music.load("C:/Users/You Love To See It/PycharmProjects/pa0-yadiel-y-sebastian/Warrior.mp3") # background music
+pygame.mixer.music.load("Warrior.mp3") # background music
 pygame.mixer.music.play(-1)
 
 # Main Window setup
