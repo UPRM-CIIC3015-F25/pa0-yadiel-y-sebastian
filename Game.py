@@ -80,7 +80,7 @@ if not os.path.exists(music_path):
     print(f"ERROR: no se encontró {music_path}")
 else:
     pygame.mixer.music.load(music_path)
-    pygame.mixer.music.set_volume(0.3)
+    pygame.mixer.music.set_volume(0.1)
     pygame.mixer.music.play(-1)
 
 # Main Window setup
