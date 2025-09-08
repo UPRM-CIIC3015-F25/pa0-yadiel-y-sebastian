@@ -67,8 +67,18 @@ def restart():
 pygame.mixer.pre_init(44100, -16, 1, 1024)
 pygame.init()
 clock = pygame.time.Clock()
-pygame.mixer.music.load("Warrior.mp3") # background music
-pygame.mixer.music.play(-1)
+import os
+import pygame
+
+BASE_DIR = os.path.dirname(__file__)
+music_path = os.path.join(BASE_DIR, "Warrior.mp3")
+
+if not os.path.exists(music_path):
+    print(f"ERROR: no se encontró {music_path}")
+else:
+    pygame.mixer.music.load(music_path)
+    pygame.mixer.music.set_volume(0.3)
+    pygame.mixer.music.play(-1)
 
 # Main Window setup
 screen_width = 500  # Screen width (can be adjusted)
