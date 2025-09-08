@@ -26,7 +26,10 @@ def ball_movement():
             ball_speed_y *= -1  # Reverse ball's vertical direction
             # TODO Task 6: Add sound effects HERE
 
-    # Ball collision with top boundary
+        pong_sound = pygame.mixer.Sound(os.path.join(BASE_DIR, "pong.wav"))
+        pong_sound.play()
+
+        # Ball collision with top boundary
     if ball.top <= 0:
         ball_speed_y *= -1  # Reverse ball's vertical direction
 
